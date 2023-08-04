@@ -152,11 +152,20 @@ h2 {
   /* background-color: white; */
   display: flex;
   flex-direction: row;
+  gap: 0.2rem;
 }
 .split-one {
+  display: flex;
+  flex-wrap: wrap;
   background-color: gray;
+  
 }
 .split-two {
+  display: flex;
+  flex-wrap: wrap;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  white-space: pre-wrap;
   background-color: gray;
 }
 .split-three {
@@ -175,12 +184,15 @@ h2 {
 }
 .split {
   width: 16.66%;
-  height: 3rem;
+  height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   /* border-radius: 1rem; */
   border: 2px solid black;
+  box-shadow: var(--dark-shadow);
+  /* text-decoration: underline;
+  text-decoration-color: white; */
 }
 .edit-img {
   width: 2rem;
@@ -190,8 +202,8 @@ h2 {
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 1rem;
-  gap: 1rem;
+  margin: 2rem;
+  gap: 2rem;
 }
 .placeholder {
   display: none;
