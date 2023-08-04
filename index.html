@@ -26,28 +26,28 @@
         <h1>Political Survey Form</h1>
         <div class="form-data">
           <h3>Name</h3>
-          <input type="text" placeholder="Enter Your Name" class="field" />
+          <input type="text" placeholder="Enter Your Name" class="field" id="only-name" />
           <h3>Email</h3>
-          <input type="email" placeholder="Enter Your Email" class="field" />
+          <input type="email" placeholder="Enter Your Email" class="field" id="only-email" />
           <div class="radio-section">
             <h3>Identify a country with a stable post-COVID-19 economy.</h3>
-            <input type="radio" id="option-one" class="radio-btn">
+            <input type="radio" id="option-one" name="economy" class="radio-btn">
             <label for="option-one">USA</label>
-            <input type="radio" id="option-two" class="radio-btn">
+            <input type="radio" id="option-two" name="economy" class="radio-btn">
             <label for="option-two">India</label>
-            <input type="radio" id="option-three" class="radio-btn">
+            <input type="radio" id="option-three" name="economy" class="radio-btn">
             <label for="option-three">Canada</label>
 
           </div>
           <div class="list-section">
             <h3>What is your preferred US political party?</h3>
-            <select name="" id="" class="pointer field">
+            <select name="political" id="political-party" class="pointer field">
               <option value="" class="placeholder" selected>Select</option>
-              <option value="" class="pointer">Democratic Party</option>
-              <option value="" class="pointer">Republican Party</option>
-              <option value="" class="pointer">Libertarian Party</option>
-              <option value="" class="pointer">Green Party</option>
-              <option value="" class="pointer">Other</option>
+              <option value="democratic" class="pointer">Democratic Party</option>
+              <option value="republican" class="pointer">Republican Party</option>
+              <option value="libertarian" class="pointer">Libertarian Party</option>
+              <option value="greenparty" class="pointer">Green Party</option>
+              <option value="other" class="pointer">Other</option>
             </select>
             
           </div>
@@ -55,13 +55,13 @@
             <h3>On a scale of 1 to 10, how would you rate the Joe Biden administration?</h3>
             <input type="checkbox" id="joe-scale-one" name="" value="" class="radio-btn check-btn">
 <label for="joe-scale-one">1-2</label><br>
-<input type="checkbox" id="joe-scale-two" name="" value="" class="radio-btn check-btn">
+<input type="checkbox" id="joe-scale-two" name="governmentRank" value="" class="radio-btn check-btn">
 <label for="joe-scale-two">2-4</label><br>
-<input type="checkbox" id="joe-scale-three" name="" value="" class="radio-btn check-btn">
+<input type="checkbox" id="joe-scale-three" name="governmentRank" value="" class="radio-btn check-btn">
 <label for="joe-scale-three">4-6</label><br>
-<input type="checkbox" id="joe-scale-four" name="" value="" class="radio-btn check-btn">
+<input type="checkbox" id="joe-scale-four" name="governmentRank" value="" class="radio-btn check-btn">
 <label for="joe-scale-four">6-8</label><br>
-<input type="checkbox" id="joe-scale-five" name="" value="" class="radio-btn check-btn">
+<input type="checkbox" id="joe-scale-five" name="governmentRank" value="" class="radio-btn check-btn">
 <label for="joe-scale-five">8-10</label><br>
           </div>
           <section class="submit-btn-section">
@@ -91,10 +91,8 @@
             <h3>Goverment Rank</h3>
           </div>
           <div class="split-six split">
-            <a href="#">
               <img src="/icons/edit-solid.svg" alt="Edit" class="edit-img">
-            </a>
-            
+              
           </div>
          </div>
          
