@@ -44,9 +44,10 @@ body {
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 
   /* align-items: center; */
-  background-color: bisque;
+  background-color: #292a49;
 }
 .right-container {
   width: 49%;
@@ -57,11 +58,42 @@ body {
   background-color: aqua;
 }
 h1 {
-  color: red;
+  color: white;
+}
+h3 {
+  color: white;
 }
 .form-data {
   width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.radio-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.list-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.check-box-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.field {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+}
+.field:focus {
+  border: 2px solid red;
+  background-color: #e9e4e4;
 }
