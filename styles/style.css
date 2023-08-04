@@ -28,7 +28,7 @@ body {
 .entire-section-outline {
   margin: 1rem;
   width: 100%;
-  height: 40rem;
+  height: 48rem;
   border: 2px solid grey;
   display: flex;
   flex-wrap: wrap;
@@ -38,7 +38,7 @@ body {
 }
 .left-container {
   width: 49%;
-  height: 38rem;
+  height: 46rem;
   border: 2px solid red;
   display: flex;
   flex-wrap: wrap;
@@ -51,11 +51,15 @@ body {
 }
 .right-container {
   width: 49%;
-  height: 38rem;
+  height: 46rem;
   border: 2px solid red;
   display: flex;
   flex-wrap: wrap;
-  background-color: aqua;
+  background-color: #292a49;
+  flex-direction: column;
+  padding: 3rem;
+  /* justify-content: center; */
+  align-items: center;
 }
 h1 {
   color: white;
@@ -68,19 +72,19 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.2rem;
   display: flex;
   flex-wrap: wrap;
 }
 .radio-section {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 .list-section {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 .check-box-section {
   display: flex;
@@ -96,4 +100,91 @@ h3 {
 .field:focus {
   border: 2px solid red;
   background-color: #e9e4e4;
+}
+.radio-btn {
+ width: 2rem;
+ cursor: pointer;
+ accent-color: red;
+}
+select.pointer {
+  cursor: pointer;
+}
+label {
+  color: white;
+}
+.check-btn {
+  width: 1rem;
+}
+.submit-btn-section {
+  display: flex;
+  justify-content: center;
+}
+.submit-btn {
+  padding: 0.5rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+h2 {
+  color: white;
+}
+.header-div {
+  width: 100%;
+  height: 3rem;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+}
+.entry-container {
+  width: 100%;
+  height: 30rem;
+  border: 2px solid yellow;
+  /* background-color: aqua; */
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+}
+.internal-line-div {
+  width: 100%;
+  height: 3rem;
+  /* background-color: white; */
+  display: flex;
+  flex-direction: row;
+}
+.split-one {
+  background-color: gray;
+}
+.split-two {
+  background-color: gray;
+}
+.split-three {
+  background-color: gray;
+  text-align: center;
+}
+.split-four {
+  background-color: gray;
+}
+.split-five {
+  background-color: gray;
+  text-align: center;
+}
+.split-six {
+  background-color: gray;
+}
+.split {
+  width: 16.66%;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+}
+.edit-img {
+  width: 2rem;
+  filter: invert(100%);
+}
+.insert-element {
+  width: 100%;
 }
