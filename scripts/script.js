@@ -1,4 +1,20 @@
 "use strict";
+
+
+
+
+const checkboxes = document.querySelectorAll('.check-btn');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('click', function() {
+            checkboxes.forEach(cb => {
+                if (cb !== checkbox) {
+                    cb.checked = false;
+                }
+            });
+        });
+    });
+
 function submitRun() {
     const name = document.getElementById("only-name").value;
     const email = document.getElementById("only-email").value;
