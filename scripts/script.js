@@ -33,6 +33,9 @@ function submitRun() {
         return; // Stop execution if any field is empty
       }
   
+    
+
+
     const insertElement = document.querySelector(".insert-element");
   
     const newEntry = document.createElement("div");
@@ -70,6 +73,7 @@ function submitRun() {
     document.querySelector('input[name="economy"]:checked').checked = false;
     document.getElementById("political-party").value = "";
     checkboxes.forEach(checkbox => checkbox.checked = false);
+    
   }
 
   // Add an event listener to the dynamically generated "Edit" buttons
@@ -100,6 +104,8 @@ document.addEventListener('click', function(event) {
     entry.querySelector('.split-four h3').textContent = selectedPoliticalParty;
     entry.querySelector('.split-five h3').textContent = selectedGovernmentRanks.join(', ');
     populateFormFields(entry);
+
+    
   }
   
 function populateFormFields(entry) {
@@ -144,6 +150,13 @@ function populateFormFields(entry) {
       submitBtn.value = 'Submit';
       submitBtn.removeEventListener('click', updateEntry);
       submitBtn.addEventListener('click', submitRun);
+ 
+
     });
   }
   
+
+
+
+ 
+
