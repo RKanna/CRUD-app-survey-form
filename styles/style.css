@@ -28,8 +28,8 @@ body {
 .entire-section-outline {
   margin: 1rem;
   width: 100%;
-  height: 48rem;
-  /* height: auto; */
+  /* height: 52rem; */
+  height: 45rem;
   border: 2px solid grey;
   display: flex;
   flex-wrap: wrap;
@@ -41,7 +41,7 @@ body {
 }
 .left-container {
   width: 49%;
-  height: 46rem;
+  height: 40rem;
   /* border: 2px solid red; */
   display: flex;
   flex-wrap: wrap;
@@ -55,24 +55,19 @@ body {
   border-radius: 1rem;
 }
 .right-container {
-  margin-top: 3.5rem;
   width: 49%;
-  height: 46rem;
-  /* border: 2px solid red; */
+  height: 40rem;
   display: flex;
   flex-wrap: wrap;
-  /* background-color: #292a49; */
   background-color: black;
- border-radius: 1rem;
+  border-radius: 1rem;
   flex-direction: column;
-  padding: 3rem;
-  /* justify-content: center; */
   align-items: center;
   overflow: hidden;
+  border: 2px solid red;
 }
 h1 {
   color: white;
-  
 }
 h3 {
   font-size: 1rem;
@@ -96,7 +91,6 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 1.2rem;
-  
 }
 .check-box-section {
   display: flex;
@@ -114,9 +108,9 @@ h3 {
   background-color: #e9e4e4;
 }
 .radio-btn {
- width: 2rem;
- cursor: pointer;
- accent-color: red;
+  width: 2rem;
+  cursor: pointer;
+  accent-color: red;
 }
 select.pointer {
   cursor: pointer;
@@ -141,26 +135,23 @@ label {
 }
 h2 {
   color: white;
-  
 }
 .header-div {
   width: 100%;
   height: 3rem;
-  /* background-color: red; */
   display: flex;
   justify-content: center;
 }
 .entry-container {
   width: 100%;
-  height: 35rem;
-  /* border: 2px solid yellow; */
-  /* background-color: aqua; */
+  height: auto;
   display: flex;
   /* justify-content: center; */
   align-items: center;
   flex-direction: column;
   overflow: hidden;
-  /* background-color: yellow; */
+  border: 2px solid yellow;
+  overflow: scroll;
 }
 .internal-line-div {
   width: 100%;
@@ -174,7 +165,6 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   background-color: gray;
-  
 }
 .split-two {
   display: flex;
@@ -230,6 +220,8 @@ h2 {
   display: none;
 }
 .card-viewable {
+  width: 90%;
+  height: 40rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
