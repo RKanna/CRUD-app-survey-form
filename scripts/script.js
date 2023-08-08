@@ -1,15 +1,15 @@
-const checkboxes = document.querySelectorAll('.check-btn');
+//Limiting the selection behaviour for checkboxes
+const checkboxes = document.querySelectorAll(".check-btn");
 
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('click', function() {
-            checkboxes.forEach(cb => {
-                if (cb !== checkbox) {
-                    cb.checked = false;
-                }
-            });
-        });
+checkboxes.forEach((checkbox) => {
+  checkbox.addEventListener("click", function () {
+    checkboxes.forEach((cb) => {
+      if (cb !== checkbox) {
+        cb.checked = false;
+      }
     });
-
+  });
+});
 
 let editedEntry = null;
 const updateBtn = document.getElementById("update-btn-ele");
@@ -18,26 +18,36 @@ const submitBtn = document.getElementById("submit-btn-ele");
 function submitRun(event) {
   event.preventDefault();
 
-  
-
-  
-  
   // Capture form inputs
   const name = document.getElementById("only-name").value;
   const email = document.getElementById("only-email").value;
-  const selectedCountryRadio = document.querySelector('input[name="economy"]:checked');
-  const selectedCountry = selectedCountryRadio ? selectedCountryRadio.nextElementSibling.textContent : '';
-  const selectedPoliticalParty = document.getElementById("political-party").value;
-  const selectedGovernmentRanks = Array.from(document.querySelectorAll('.check-btn:checked')).map(checkbox => checkbox.nextElementSibling.textContent);
+  const selectedCountryRadio = document.querySelector(
+    'input[name="economy"]:checked'
+  );
+  const selectedCountry = selectedCountryRadio
+    ? selectedCountryRadio.nextElementSibling.textContent
+    : "";
+  const selectedPoliticalParty =
+    document.getElementById("political-party").value;
+  const selectedGovernmentRanks = Array.from(
+    document.querySelectorAll(".check-btn:checked")
+  ).map((checkbox) => checkbox.nextElementSibling.textContent);
 
-//preventing empty row adding
-  if (name === "" || email === "" || !selectedCountryRadio || selectedPoliticalParty === "" || selectedGovernmentRanks.length === 0) {
+  //preventing empty row adding
+  if (
+    name === "" ||
+    email === "" ||
+    !selectedCountryRadio ||
+    selectedPoliticalParty === "" ||
+    selectedGovernmentRanks.length === 0
+  ) {
     alert("Please fill in all fields before submitting.");
     return;
   }
 
   // Create a new row
   const newEntry = document.createElement("div");
+  // const newEntry = document.getElementById("insert-element");
   newEntry.className = "internal-line-div";
   newEntry.innerHTML = `
     <div class="split-one split bg-clr">
@@ -57,10 +67,10 @@ function submitRun(event) {
     </div>
     <div class="split-six split bg-clr">
       <a href="#" class="edit-link">
-        <img src="/icons/edit-solid.svg" alt="Edit" class="edit-img">
+        <img src="./icons/edit-solid.svg" alt="Edit" class="edit-img">
       </a>
       <a href="#" class="edit-link">
-        <img src="/icons/trash-solid.svg" alt="Delete" class="delete-img">
+        <img src="./icons/trash-solid.svg" alt="Delete" class="delete-img">
       </a>
     </div>
   `;
@@ -70,13 +80,13 @@ function submitRun(event) {
   insertElement.appendChild(newEntry);
 
   // Clear form fields
-  document.getElementById("only-name").value = '';
-  document.getElementById("only-email").value = '';
+  document.getElementById("only-name").value = "";
+  document.getElementById("only-email").value = "";
   const countryRadios = document.querySelectorAll('input[name="economy"]');
-  countryRadios.forEach(radio => radio.checked = false);
-  document.getElementById("political-party").value = '';
-  const governmentRankCheckboxes = document.querySelectorAll('.check-btn');
-  governmentRankCheckboxes.forEach(checkbox => checkbox.checked = false);
+  countryRadios.forEach((radio) => (radio.checked = false));
+  document.getElementById("political-party").value = "";
+  const governmentRankCheckboxes = document.querySelectorAll(".check-btn");
+  governmentRankCheckboxes.forEach((checkbox) => (checkbox.checked = false));
 }
 
 // Add event listener to your submit button
@@ -92,8 +102,11 @@ function populateFormForEdit(entry) {
   const name = splitElements[0].querySelector("h3").textContent;
   const email = splitElements[1].querySelector("h3").textContent;
   const selectedCountry = splitElements[2].querySelector("h3").textContent;
-  const selectedPoliticalParty = splitElements[3].querySelector("h3").textContent;
-  const selectedGovernmentRanks = splitElements[4].querySelector("h3").textContent.split(", ");
+  const selectedPoliticalParty =
+    splitElements[3].querySelector("h3").textContent;
+  const selectedGovernmentRanks = splitElements[4]
+    .querySelector("h3")
+    .textContent.split(", ");
 
   // Populate form fields
   document.getElementById("only-name").value = name;
@@ -101,7 +114,7 @@ function populateFormForEdit(entry) {
 
   // Populate radio buttons
   const countryRadios = document.querySelectorAll('input[name="economy"]');
-  countryRadios.forEach(radio => {
+  countryRadios.forEach((radio) => {
     if (radio.nextElementSibling.textContent === selectedCountry) {
       radio.checked = true;
     } else {
@@ -113,9 +126,11 @@ function populateFormForEdit(entry) {
   document.getElementById("political-party").value = selectedPoliticalParty;
 
   // Populate government rank checkboxes
-  const governmentRankCheckboxes = document.querySelectorAll('.check-btn');
-  governmentRankCheckboxes.forEach(checkbox => {
-    if (selectedGovernmentRanks.includes(checkbox.nextElementSibling.textContent)) {
+  const governmentRankCheckboxes = document.querySelectorAll(".check-btn");
+  governmentRankCheckboxes.forEach((checkbox) => {
+    if (
+      selectedGovernmentRanks.includes(checkbox.nextElementSibling.textContent)
+    ) {
       checkbox.checked = true;
     } else {
       checkbox.checked = false;
@@ -123,18 +138,43 @@ function populateFormForEdit(entry) {
   });
 }
 
+// function handleEditButtonClick(event) {
+//   console.log("Edit button clicked");
+//   const entry = event.target.closest(".internal-line-div");
+//   if (entry) {
+//     console.log("Entry found:", entry);
+//     populateFormForEdit(entry);
+//   }
+// }
+
+//modification of code due to the bug when consecutive clicking of Edit and Delete
+
 function handleEditButtonClick(event) {
   console.log("Edit button clicked");
   const entry = event.target.closest(".internal-line-div");
   if (entry) {
     console.log("Entry found:", entry);
     populateFormForEdit(entry);
+    updateBtn.classList.add("dynamic-update-btn");
+    submitBtn.classList.add("dynamic-submit-btn");
+  } else {
+    // If no entry is found, reset form fields and remove dynamic classes
+    document.getElementById("only-name").value = "";
+    document.getElementById("only-email").value = "";
+    const countryRadios = document.querySelectorAll('input[name="economy"]');
+    countryRadios.forEach((radio) => (radio.checked = false));
+    document.getElementById("political-party").value = "";
+    const governmentRankCheckboxes = document.querySelectorAll(".check-btn");
+    governmentRankCheckboxes.forEach((checkbox) => (checkbox.checked = false));
+    editedEntry = null;
+    updateBtn.classList.remove("dynamic-update-btn");
+    submitBtn.classList.remove("dynamic-submit-btn");
   }
 }
 
 // Event handling
 const insertElement = document.querySelector(".insert-element");
-insertElement.addEventListener("click", function(event) {
+insertElement.addEventListener("click", function (event) {
   if (event.target.classList.contains("edit-img")) {
     handleEditButtonClick(event);
     updateBtn.classList.add("dynamic-update-btn");
@@ -146,13 +186,21 @@ function updateRun() {
   // Capture form inputs
   const name = document.getElementById("only-name").value;
   const email = document.getElementById("only-email").value;
-  const selectedCountryRadio = document.querySelector('input[name="economy"]:checked');
-  const selectedCountry = selectedCountryRadio ? selectedCountryRadio.nextElementSibling.textContent : '';
-  const selectedPoliticalParty = document.getElementById("political-party").value;
-  const selectedGovernmentRanks = Array.from(document.querySelectorAll('.check-btn:checked')).map(checkbox => checkbox.nextElementSibling.textContent);
+  const selectedCountryRadio = document.querySelector(
+    'input[name="economy"]:checked'
+  );
+  const selectedCountry = selectedCountryRadio
+    ? selectedCountryRadio.nextElementSibling.textContent
+    : "";
+  const selectedPoliticalParty =
+    document.getElementById("political-party").value;
+  const selectedGovernmentRanks = Array.from(
+    document.querySelectorAll(".check-btn:checked")
+  ).map((checkbox) => checkbox.nextElementSibling.textContent);
 
   // creating a row using dynamic HTML structure
   const newEntry = document.createElement("div");
+  // const newEntry = document.getElementById("insert-element");
   newEntry.className = "internal-line-div";
   newEntry.innerHTML = `
     <div class="split-one split bg-clr">
@@ -172,10 +220,10 @@ function updateRun() {
     </div>
     <div class="split-six split bg-clr">
       <a href="#" class="edit-link">
-        <img src="/icons/edit-solid.svg" alt="Edit" class="edit-img">
+        <img src="./icons/edit-solid.svg" alt="Edit" class="edit-img">
       </a>
       <a href="#" class="edit-link">
-        <img src="/icons/trash-solid.svg" alt="Delete" class="delete-img">
+        <img src="./icons/trash-solid.svg" alt="Delete" class="delete-img">
       </a>
     </div>
   `;
@@ -183,13 +231,13 @@ function updateRun() {
   if (editedEntry) {
     editedEntry.replaceWith(newEntry);
 
-    document.getElementById("only-name").value = '';
-    document.getElementById("only-email").value = '';
+    document.getElementById("only-name").value = "";
+    document.getElementById("only-email").value = "";
     const countryRadios = document.querySelectorAll('input[name="economy"]');
-    countryRadios.forEach(radio => radio.checked = false);
-    document.getElementById("political-party").value = '';
-    const governmentRankCheckboxes = document.querySelectorAll('.check-btn');
-    governmentRankCheckboxes.forEach(checkbox => checkbox.checked = false);
+    countryRadios.forEach((radio) => (radio.checked = false));
+    document.getElementById("political-party").value = "";
+    const governmentRankCheckboxes = document.querySelectorAll(".check-btn");
+    governmentRankCheckboxes.forEach((checkbox) => (checkbox.checked = false));
 
     editedEntry = null;
     updateBtn.classList.remove("dynamic-update-btn");
@@ -197,17 +245,19 @@ function updateRun() {
   }
 
   // replace
-  const entryToReplace = document.querySelector(".internal-line-div.dynamic-update-entry");
+  const entryToReplace = document.querySelector(
+    ".internal-line-div.dynamic-update-entry"
+  );
   entryToReplace.replaceWith(newEntry);
 
   // for clearing the form fields
-  document.getElementById("only-name").value = '';
-  document.getElementById("only-email").value = '';
+  document.getElementById("only-name").value = "";
+  document.getElementById("only-email").value = "";
   const countryRadios = document.querySelectorAll('input[name="economy"]');
-  countryRadios.forEach(radio => radio.checked = false);
-  document.getElementById("political-party").value = '';
-  const governmentRankCheckboxes = document.querySelectorAll('.check-btn');
-  governmentRankCheckboxes.forEach(checkbox => checkbox.checked = false);
+  countryRadios.forEach((radio) => (radio.checked = false));
+  document.getElementById("political-party").value = "";
+  const governmentRankCheckboxes = document.querySelectorAll(".check-btn");
+  governmentRankCheckboxes.forEach((checkbox) => (checkbox.checked = false));
 
   updateBtn.classList.remove("dynamic-update-btn");
   submitBtn.classList.remove("dynamic-submit-btn");
@@ -216,7 +266,6 @@ function updateRun() {
 // Add event listener to the update button
 updateBtn.addEventListener("click", updateRun);
 
-
 // function for delete
 function deleteEntry(entry) {
   const insertElement = document.querySelector(".insert-element");
@@ -224,11 +273,35 @@ function deleteEntry(entry) {
 }
 
 // For Deleting the Row
-insertElement.addEventListener("click", function(event) {
+// insertElement.addEventListener("click", function (event) {
+//   if (event.target.classList.contains("delete-img")) {
+//     const entry = event.target.closest(".internal-line-div");
+//     if (entry) {
+//       deleteEntry(entry);
+//     }
+//   }
+// });
+
+//modification of code due to the bug when consecutive clicking of Edit and Delete
+
+insertElement.addEventListener("click", function (event) {
   if (event.target.classList.contains("delete-img")) {
     const entry = event.target.closest(".internal-line-div");
     if (entry) {
       deleteEntry(entry);
+      // Reset form fields and remove dynamic classes
+      document.getElementById("only-name").value = "";
+      document.getElementById("only-email").value = "";
+      const countryRadios = document.querySelectorAll('input[name="economy"]');
+      countryRadios.forEach((radio) => (radio.checked = false));
+      document.getElementById("political-party").value = "";
+      const governmentRankCheckboxes = document.querySelectorAll(".check-btn");
+      governmentRankCheckboxes.forEach(
+        (checkbox) => (checkbox.checked = false)
+      );
+      editedEntry = null;
+      updateBtn.classList.remove("dynamic-update-btn");
+      submitBtn.classList.remove("dynamic-submit-btn");
     }
   }
 });
